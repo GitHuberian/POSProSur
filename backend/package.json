@@ -19,10 +19,14 @@
   "homepage": "https://github.com/GitHuberian/POSProSur#readme",
   "dependencies": {
     "@sequelize/postgres": "^7.0.0-alpha.45",
+    "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "sequelize": "^6.37.6"
+    "jsonwebtoken": "^9.0.2",
+    "sequelize": "^6.37.6",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
     "sequelize-cli": "^6.6.2"
