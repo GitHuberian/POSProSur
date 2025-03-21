@@ -2,7 +2,7 @@ const Sale = require('../models/Sale');
 const Product = require('../models/Product');
 const { Op } = require('sequelize');
 
-exports.getSalesByDate = async (req, res) => {
+const getSalesByDate = async (req, res) => {
   try {
     const { startDate, endDate } = req.query;
     const sales = await Sale.findAll({
@@ -15,7 +15,7 @@ exports.getSalesByDate = async (req, res) => {
   }
 };
 
-exports.getTopProducts = async (req, res) => {
+const getTopProducts = async (req, res) => {
   try {
     const { startDate, endDate } = req.query;
     const topProducts = await Sale.findAll({
@@ -32,7 +32,7 @@ exports.getTopProducts = async (req, res) => {
   }
 };
 
-exports.getSalesGraph = async (req, res) => {
+const getSalesGraph = async (req, res) => {
   try {
     const { productId, startDate, endDate } = req.query;
     const salesData = await Sale.findAll({
@@ -45,3 +45,5 @@ exports.getSalesGraph = async (req, res) => {
     res.status(500).json({ error: 'Error al obtener datos de la gráfica' });
   }
 };
+
+module.exports = { getSalesByDate, getTopProducts, getSalesGraph };

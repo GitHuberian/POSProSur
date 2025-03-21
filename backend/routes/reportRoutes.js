@@ -1,6 +1,6 @@
 const express = require('express');
-const { verifyToken, isGerente } = require('../middleware/authMiddleware');
-const { getSalesByDate, getTopProducts, getSalesGraph } = require('../controllers/dashboardController');
+const { authenticateToken, authorizeRole }  = require('../middleware/authMiddleware');
+const { getSalesByDate, getTopProducts, getSalesGraph } = require('../controllers/reportsController');
 
 const router = express.Router();
 
@@ -33,7 +33,7 @@ const router = express.Router();
  *       403:
  *         description: Acceso denegado
  */
-router.get('/sales', verifyToken, isGerente, getSalesByDate);
+router.get('/sales', authenticateToken, authorizeRole(['gerente']), getSalesByDate);
 
 /**
  * @swagger
@@ -64,7 +64,7 @@ router.get('/sales', verifyToken, isGerente, getSalesByDate);
  *       403:
  *         description: Acceso denegado
  */
-router.get('/top-products', verifyToken, isGerente, getTopProducts);
+router.get('/top-products', authenticateToken, authorizeRole(['gerente']), getTopProducts);
 
 /**
  * @swagger
@@ -101,6 +101,6 @@ router.get('/top-products', verifyToken, isGerente, getTopProducts);
  *       403:
  *         description: Acceso denegado
  */
-router.get('/sales-graph', verifyToken, isGerente, getSalesGraph);
+router.get('/sales-graph', authenticateToken, authorizeRole(['gerente']), getSalesGraph);
 
 module.exports = router;
