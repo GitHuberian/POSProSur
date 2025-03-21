@@ -1,0 +1,24 @@
+{
+  "name": "posprosur",
+  "version": "1.0.0",
+  "description": "POS",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GitHuberian/POSProSur.git"
+  },
+  "author": "Nancy Toledo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GitHuberian/POSProSur/issues"
+  },
+  "homepage": "https://github.com/GitHuberian/POSProSur#readme",
+  "dependencies": {
+    "@sequelize/postgres": "^7.0.0-alpha.45",
+    "sequelize": "^6.37.6"
+  }
+}
