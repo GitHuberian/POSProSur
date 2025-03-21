@@ -17,6 +17,10 @@ const Sale = sequelize.define('Sale', {
         allowNull: false },
     sellerId: { 
         type: DataTypes.INTEGER, 
-        allowNull: false }
+        allowNull: false },
+    saleDate: { 
+        type: DataTypes.DATE, 
+        allowNull: false, 
+        defaultValue: DataTypes.NOW }
 });
 module.exports = Sale;

@@ -10,6 +10,17 @@ const getSales = async (req, res) => {
     }
 };
 
+const createSale = async (req, res) => {
+    try {
+        const { productId, quantity, total, sellerId} = req.body;
+        const newSale = await Sale.create({ productId, quantity, total, sellerId });
+
+        res.status(201).json(newSale);
+    } catch (error) {
+        res.status(500).json({ message: 'Error al crear registro de venta', error });
+    }
+};
+
 const cancelSale = async (req, res) => {
     try {
         const { id } = req.params;
@@ -42,4 +53,4 @@ const deleteSale = async (req, res) => {
     }
 };
 
-module.exports = { getSales, cancelSale, deleteSale };
+module.exports = { getSales, createSale, cancelSale, deleteSale };
